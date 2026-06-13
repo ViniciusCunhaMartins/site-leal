@@ -1,0 +1,26 @@
+{"videos": [
+    {
+        "peolico50": "videos/D01POT_EOLICO_50M.webm",
+        "peolico100": "videos/D01POT_EOLICO_100M.webm",
+        "peolico150": "videos/D01POT_EOLICO_150M.webm",
+        "ffweibull": "videos/D01K_WEIB.webm"
+    },
+    {
+        "peolico50": "videos/D02POT_EOLICO_50M.webm",
+        "peolico100": "videos/D02POT_EOLICO_100M.webm",
+        "peolico150": "videos/D02POT_EOLICO_150M.webm",
+        "ffweibull": "videos/D02K_WEIB.webm"
+    },
+    {
+        "peolico50": "videos/D03POT_EOLICO_50M.webm",
+        "peolico100": "videos/D03POT_EOLICO_100M.webm",
+        "peolico150": "videos/D03POT_EOLICO_150M.webm",
+        "ffweibull": "videos/D03K_WEIB.webm"
+    },
+    {
+        "peolico50": "videos/D04POT_EOLICO_50M.webm",
+        "peolico100": "videos/D04POT_EOLICO_100M.webm",
+        "peolico150": "videos/D04POT_EOLICO_150M.webm",
+        "ffweibull": "videos/D04K_WEIB.webm"
+    }
+]}

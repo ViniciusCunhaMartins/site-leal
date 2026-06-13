@@ -1,0 +1,38 @@
+{
+    "output": "assets/video/d01hfx.webm",
+    "options": {
+      "fps": 30,
+      "loop": 1,
+      "transition": false,
+      "transitionDuration": 0,
+      "videoBitrate": 1024,
+      "videoCodec": "libvpx",
+      "size": "640x?",
+      "format": "webm"
+    },
+    "images": [
+      "assets/files/D01_HFX_002.png",
+      "assets/files/D01_HFX_003.png",
+      "assets/files/D01_HFX_004.png",
+      "assets/files/D01_HFX_005.png",
+      "assets/files/D01_HFX_006.png",
+      "assets/files/D01_HFX_007.png",
+      "assets/files/D01_HFX_008.png",
+      "assets/files/D01_HFX_009.png",
+      "assets/files/D01_HFX_010.png",
+      "assets/files/D01_HFX_011.png",
+      "assets/files/D01_HFX_012.png",
+      "assets/files/D01_HFX_013.png",
+      "assets/files/D01_HFX_014.png",
+      "assets/files/D01_HFX_015.png",
+      "assets/files/D01_HFX_016.png",
+      "assets/files/D01_HFX_017.png",
+      "assets/files/D01_HFX_018.png",
+      "assets/files/D01_HFX_019.png",
+      "assets/files/D01_HFX_020.png",
+      "assets/files/D01_HFX_021.png",
+      "assets/files/D01_HFX_022.png",
+      "assets/files/D01_HFX_023.png",
+      "assets/files/D01_HFX_024.png"
+    ]
+  }
