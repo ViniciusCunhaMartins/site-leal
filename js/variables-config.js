@@ -48,7 +48,18 @@ const VARIABLES_CONFIG = {
         label: 'Radiação Solar',
         unit: 'W/m²',
         colormap: 'hot_r',
-        colors: ['#ffffff', '#ffe800', '#ffa200', '#ff3900', '#b30000', '#4d0000', '#000000'],
+        colors: [
+            "#ffffff",
+            "#fff0a0",
+            "#ffd700",
+            "#ffaa00",
+            "#ff6600",
+            "#ff2200",
+            "#dd0000",
+            "#aa0000",
+            "#7a0000",
+            "#691009",
+        ],
         specificInfo: (value, allValues = {}) => {
             // Se valor ausente, retornar aviso
             if (value === null || value === undefined) {
