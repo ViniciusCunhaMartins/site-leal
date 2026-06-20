@@ -375,51 +375,51 @@ const VARIABLES_CONFIG = {
         }
     },
 
-    // wind: {
-    //     id: 'WIND',
-    //     label: 'Velocidade do Vento (10m)',
-    //     unit: 'm/s',
-    //     colormap: 'PuBu',
-    //     colors: ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd', '#08519c'],
-    //     specificInfo: (value, allValues = {}) => {
-    //         // Se valor ausente ou ausente flag ativo, retornar aviso
-    //         if (value === null || value === undefined || allValues.wind?.ausente) {
-    //             return {
-    //                 title: 'Informações do Vento',
-    //                 items: [
-    //                     {
-    //                         label: 'Status',
-    //                         value: '⚠ Dados Indisponíveis',
-    //                         unit: '',
-    //                         icon: 'fa-exclamation-triangle'
-    //                     }
-    //                 ]
-    //             };
-    //         }
+    wind: {
+        id: 'WIND',
+        label: 'Velocidade do Vento (10m)',
+        unit: 'm/s',
+        colormap: 'PuBu',
+        colors: ['#f7fbff', '#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#3182bd', '#08519c'],
+        specificInfo: (value, allValues = {}) => {
+            // Se valor ausente ou ausente flag ativo, retornar aviso
+            if (value === null || value === undefined || allValues.wind?.ausente) {
+                return {
+                    title: 'Informações do Vento',
+                    items: [
+                        {
+                            label: 'Status',
+                            value: '⚠ Dados Indisponíveis',
+                            unit: '',
+                            icon: 'fa-exclamation-triangle'
+                        }
+                    ]
+                };
+            }
             
-    //         return {
-    //             title: 'Informações do Vento',
-    //             items: [
-    //                 { 
-    //                     label: 'Categoria do Vento',
-    //                     value: getWindCategory(value),
-    //                     icon: 'fa-wind'
-    //                 },
-    //                 { 
-    //                     label: 'Direção',
-    //                     value: 'Variável',
-    //                     icon: 'fa-compass'
-    //                 },
-    //                 {
-    //                     label: 'Rajadas',
-    //                     value: (value * 1.3).toFixed(1),
-    //                     unit: 'm/s',
-    //                     icon: 'fa-wind'
-    //                 }
-    //             ]
-    //         }
-    //     }
-    // },
+            return {
+                title: 'Informações do Vento',
+                items: [
+                    { 
+                        label: 'Categoria do Vento',
+                        value: getWindCategory(value),
+                        icon: 'fa-wind'
+                    },
+                    { 
+                        label: 'Direção',
+                        value: 'Variável',
+                        icon: 'fa-compass'
+                    },
+                    {
+                        label: 'Rajadas',
+                        value: (value * 1.3).toFixed(1),
+                        unit: 'm/s',
+                        icon: 'fa-wind'
+                    }
+                ]
+            }
+        }
+    },
 
     // hfx: {
     //     id: 'HFX',
