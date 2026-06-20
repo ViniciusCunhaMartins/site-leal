@@ -15,9 +15,12 @@ class MeteoMapManager {
         this.selectedMarker = null; // Marcador visual da célula selecionada
         this.customParameters = {}; // Inicializar parâmetros customizados
         this.windHeight = 50; // Altura padrão para eólico
+
+        // Procura a variável selecionada no HTML
+        const defaultVariable = document.getElementById('variableSelect')?.value || 'solar';
         
         this.state = {
-            type: 'solar',
+            type: defaultVariable,
             index: 7,
             isPlaying: false,
             isLooping: false,
