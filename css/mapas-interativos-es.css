@@ -1479,8 +1479,10 @@ body {
 /* DOCUMENTATION BUTTON */
 .documentation-btn-container {
     position: absolute;
-    top: 12px;
-    left: 60px;
+    bottom: 90px !important;
+    right: 8px !important;
+    top: auto !important;
+    left: auto !important;
     z-index: 799;
 }
 
