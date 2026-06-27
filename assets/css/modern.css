@@ -251,11 +251,14 @@
 }
 
 .btn-outline-lab {
+  background-color: rgba(238, 223, 194, 0.307) !important;
   border-color: var(--white);
   color: var(--white);
-  font-weight: 500;
+  font-weight: 450 !important;
+  font-size: medium !important;
   transition: all 0.3s ease;
   border-radius: 6px;
+  /*border: 1px solid #2c3e50 !important;*/
 }
 
 .btn-outline-lab:hover {

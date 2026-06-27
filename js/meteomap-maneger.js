@@ -1811,4 +1811,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     };
+
+    if (app.map) {
+        app.map.on('mousedown dragstart zoomstart', function() {
+            const header = document.querySelector('header');
+            if (header) {
+                header.style.transform = 'translateY(-100%)';
+            }
+        });
+    }
 });
