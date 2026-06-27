@@ -1,8 +1,71 @@
+<style>
+    /* ==========================================================================
+       CONFIGURAÇÃO PADRÃO (Para páginas SEM mapa, ex: previsoes.html)
+       ========================================================================== */
+    header {
+        position: relative;
+        z-index: 1030;
+    }
+
+    body:not(.page-with-map) .navbar {
+        padding: 1rem 2rem !important; /* Aumenta o espaçamento interno da barra */
+        transition: padding 0.3s ease;
+    }
+
+    body:not(.page-with-map) .navbar-logo {
+        height: 60px; /* Logo maior nas páginas normais */
+        width: auto;
+        object-fit: contain;
+        transition: height 0.3s ease;
+    }
+
+    /* ==========================================================================
+       CONFIGURAÇÃO DINÂMICA (Para páginas COM mapa, ex: mapas_interativos_es.html)
+       ========================================================================== */
+    .page-with-map header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2000; /* Garante que fica por cima do Leaflet */
+        transform: translateY(0);
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* Tamanho padrão/menor para a página do mapa */
+    .page-with-map .navbar {
+        padding: 0.5rem 1.5rem !important;
+    }
+    .page-with-map .navbar-logo {
+        height: 40px; /* Logo menor */
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* Força a navbar a descer se o mouse estiver na trigger OU no próprio header */
+    .page-with-map:has(.trigger:hover) header,
+    .page-with-map header:hover {
+        transform: translateY(0) !important;
+    }
+
+    /* Elemento invisível no topo do body para capturar o hover do mouse */
+    .page-with-map .trigger {
+        /*content: "";*/
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px; /* Altura da zona sensível no topo */
+        z-index: 1999;
+    }
+</style>
+
 <!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+<div class="trigger"></div>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-lab static-top" style="padding: 0.5rem 1.5rem;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-lab static-top">
         <div class="container-fluid px-0">
             <a class="navbar-brand py-0 me-3" href="https://leal.ufes.br" target="_blank">
                 <img src="assets/img/leal.png" alt="LEAL" style="height: 40px; width: auto; object-fit: contain;">
