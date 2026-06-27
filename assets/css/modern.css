@@ -251,7 +251,7 @@
 }
 
 .btn-outline-lab {
-  background-color: rgba(238, 223, 194, 0.63) !important;
+  background-color: rgba(238, 223, 194, 0.307) !important;
   border-color: var(--white);
   color: var(--white);
   font-weight: 450 !important;
