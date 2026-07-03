@@ -38,6 +38,8 @@ class MeteoMapManager {
         this.setupDomainIndicators();
         this.loadRegionGeojsons();
         this.loadCustomParameters();
+        this.startAnimation();
+        this.toggleLoop();
     }
 
     getVariableId(variableType) {
