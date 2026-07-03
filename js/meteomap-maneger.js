@@ -22,8 +22,8 @@ class MeteoMapManager {
         this.state = {
             type: defaultVariable,
             index: 7,
-            isPlaying: false,
-            isLooping: false,
+            isPlaying: true,
+            isLooping: true,
             clipRegion: 'off', // 'off', 'es', or 'ba'
             maxLayer: 73,
             initialDateTime: null,
@@ -38,6 +38,7 @@ class MeteoMapManager {
         this.setupDomainIndicators();
         this.loadRegionGeojsons();
         this.loadCustomParameters();
+        this.startAnimation();
     }
 
     getVariableId(variableType) {
