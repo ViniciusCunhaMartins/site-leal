@@ -56,33 +56,14 @@
         </div>
 
     </div><hr>
-    
-    <center><div class="footer">
-                <a href="https://ufes.br" target="_blank">Universidade Federal do Espírito Santo</a> - <a href="https://ct.ufes.br" target="_blank">Centro Tecnológico</a> - <a href="https://tecnologiaindustrial.ufes.br/departamento-de-tecnologia-industrial" target="_blank">Departamento de Tecnologia Industrial</a><br/>
-                <br/>
-                <p><a href="https://engenhariaedesenvolvimentosustentavel.ufes.br" target="_blank"><b>Programa de Pós-Graduação em Engenharia e Desenvolvimento Sustentável</b></a></p>
-                <hr>
-                <p><font size="1" face="Verdana, Arial, Helvetica, sans-serif" color="#006699">
-                  [<a href="index.html" target="_top">HOME</a>]
-                  [<a href="mapas_interativos_es.html" target="_top">Mapas interativos</a>]
-                  [<a href="mapas_eolicos.html" target="_top">Mapas eólicos</a>]
-                  [<a href="mapas_meteorologicos.html" target="_top">Mapas meteorológicos</a>]
-                  [<a href="monitoramento.html" target="_top">Monitoramento</a>]
-                  [<a href="projetos.html" target="_top">Projetos</a>]
-                  [<a href="equipe.html" target="_top">Equipe</a>]
-                  [<a href="contato.html" target="_top">Contato</a>]
-                </font></p>
-                <hr>
-    </div></center>
 
-   </section>
+    </section>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <div id="footer-container"></div>
 
-    <!-- Inclui navbar -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // 1. Injeta Navbar
             fetch('html/navbar.html')
                 .then(response => {
                     if (!response.ok) throw new Error('Erro ao carregar a navbar');
@@ -91,10 +72,21 @@
                 .then(data => {
                     document.getElementById('navbar-container').innerHTML = data;
 
-                    // Bootstrap JS
+                    // 2. Cria dinamicamente o script do Bootstrap 5.3 para evitar conflitos nativos de componentes
                     const scriptBootstrap = document.createElement('script');
                     scriptBootstrap.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
                     document.body.appendChild(scriptBootstrap);
+                })
+                .catch(error => console.error(error));
+
+            // 3. Injeta Footer
+            fetch('html/footer.html')
+                .then(response => {
+                    if (!response.ok) throw new Error('Erro ao carregar o footer');
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById('footer-container').innerHTML = data;
                 })
                 .catch(error => console.error(error));
         });
