@@ -1,7 +1,7 @@
 <style>
-    /* ==========================================================================
-       CONFIGURAÇÃO PADRÃO (Para páginas SEM mapa, ex: previsoes.html)
-       ========================================================================== */
+    /* ===========================================
+       CONFIGURAÇÃO PADRÃO (Para páginas SEM mapa)
+       =========================================== */
     header {
         position: relative;
         z-index: 1030;
@@ -19,9 +19,9 @@
         transition: height 0.3s ease;
     }
 
-    /* ==========================================================================
-       CONFIGURAÇÃO DINÂMICA (Para páginas COM mapa, ex: mapas_interativos_es.html)
-       ========================================================================== */
+    /* =============================================
+       CONFIGURAÇÃO DINÂMICA (Para páginas COM mapa)
+       ============================================= */
     .page-with-map header {
         position: fixed;
         top: 0;
@@ -50,7 +50,6 @@
 
     /* Elemento invisível no topo do body para capturar o hover do mouse */
     .page-with-map .trigger {
-        /*content: "";*/
         position: fixed;
         top: 0;
         left: 50%;
