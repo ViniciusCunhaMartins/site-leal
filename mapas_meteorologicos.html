@@ -2,8 +2,7 @@
 <html lang="pt-br">
 
 <head>
-  <link rel="stylesheet" type="text/css"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/template.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" type="text/css" rel="stylesheet">
@@ -17,24 +16,19 @@
 <body>
     <div id="navbar-container"></div>
 
-    <div id="content" class="mx-5 mb-3 mt-3">
-        <center><h6 class="text-lightsecondary">PREVISÃO NUMÉRICA DE PARÂMETROS METEOROLÓGICOS PARA AS PRÓXIMAS 72 HORAS</h6></center>
-        <hr>
-
-        <div class="text-center mb-3">
-          <button class="btn btn-sm btn-outline-secondary" id="toggleExplanation" onclick="toggleExplanation()">
-            <i class="fas fa-chevron-down"></i> Mostrar Explicação
-          </button>
+<div id="content" class="modern-section">
+        <div class="modern-header">
+          <h2 class="text-center mb-4">Mapas Meteorológicos</h2>
+          <p class="text-center text-muted mb-4">Previsão numérica de parâmetros meteorológicos para as próximas 72 horas</p>
         </div>
 
-        <div id="explanationContent" style="display: none; transition: all 0.3s ease;">
-        <section>
+        <div class="text-center mb-4">
+          <button class="btn btn-sm btn-outline-secondary modern-btn" id="toggleExplanation" onclick="toggleExplanation()"><i class="fas fa-chevron-up"></i> Ocultar Explicação</button>
+        </div>
 
-          <p>
-            Esta página reúne mapas e animações de <strong>previsão numérica</strong> para as próximas
-            <strong>72 horas</strong>, ajudando você a acompanhar a evolução de variáveis meteorológicas de
-            superfície.
-          </p>
+        <div id="explanationContent" style="display: block; transition: 0.3s;" class="explanation-box">
+        <div class="explanation-content">
+          <h4 class="mb-4"><i class="fas fa-cloud"></i> Previsão Numérica Meteorológica</h4>
 
           <p>Entre os produtos disponíveis, você pode visualizar:</p>
 
@@ -77,243 +71,213 @@
               Observação: os produtos são apresentados como resultados de pesquisa e devem ser usados como apoio informativo.
             </small>
           </p>
-        </section>
+        
         </div>
         <hr>
 
-
-
-      <div class="row"><hr>
-      
-        <div class="dropdown mb-3 col">
-          <button class="btn btn-lealsec dropdown-toggle ml-4" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mapas das variáveis meteorológicas de superfície
+      <div class="modern-controls">
+        <div class="dropdown mb-3">
+          <button class="btn btn-lealsec dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-layer-group"></i> Selecione a Variável
           </button>
 
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#" id="wind"><i class="fa fa-wind"></i> Velocidade do vento</a>
-            <a class="dropdown-item" href="#" id="humidity"><img src="assets/icon/humidity.png"> Umidade específica</a>
-            <a class="dropdown-item" href="#" id="temperature"><i class="fa fa-thermometer-half"></i> Temperatura do ar<br> e Pressão atmosférica</a>
-            <a class="dropdown-item" href="#" id="radiation"><img src="assets/icon/radiation.png"> Radiação Solar</a>
-            <a class="dropdown-item" href="#" id="rain"><i class="fa fa-cloud-rain"></i> Precipitação</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -2px, 0px); top: 0px; left: 0px; will-change: transform;">
+            <a class="dropdown-item" href="#" id="wind"><i class="fas fa-wind"></i> Velocidade do vento</a>
+            <a class="dropdown-item" href="#" id="humidity"><i class="fas fa-tint"></i> Umidade específica</a>
+            <a class="dropdown-item" href="#" id="temperature"><i class="fas fa-thermometer-half"></i> Temperatura e Pressão</a>
+            <a class="dropdown-item" href="#" id="radiation"><i class="fas fa-sun"></i> Radiação Solar</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="rain"><i class="fas fa-cloud-rain"></i> Precipitação</a>
           </div>
         </div>
       </div>
-      
-      <center><h6 class="text-lightsecondary bg-light col-sm-4 py-1" id="actual">Velocidade do vento a 10 m de altura</h6></center>
-      <div class="row mb-5 bg-light p-3" id="videos">
-        <div class="col-12 col-md-6 text-center mt-2 default">
-          <h6 class="text-lightdark mb-3">DOMÍNIO 1 - Sul-Sudeste-Nordeste</h6>
-          <video id="vid1" width="420">
-            <source id="video1" src="videos/D01WIND.webm" type='video/webm; codecs="vp8, vorbis"' />
+
+      <div class="modern-title">
+        <h4 id="actual">Radiação solar na superfície</h4>
+      </div>
+
+      <div class="videos-container" id="videos">
+        <div class="video-card">
+          <h6>DOMÍNIO 1 - Sul-Sudeste-Nordeste</h6>
+          <video id="vid1" width="420" src="videos/D01SWDOWN.webm">
+            <source id="video1" src="videos/D01WIND.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
             To view this video please enable JavaScript, and consider upgrading to a web browser
             that <a href="html5-video-support.html" target="_blank">supports HTML5 video</a>
           </video>
-          <br>
-          <button class="btn btn-sm btn-secondary" onclick="playPause(1)">Play/Pause</button>
-          <div class="tooltip-menu-video ">
-
-            <button class="btn btn-sm btn-secondary" onclick="slow(1)">-</button>
-            <span class="tooltiptext-menu-video">diminuir velocidade</span>
-
+          <div class="video-controls">
+            <button onclick="playPause(1)"><i class="fas fa-play"></i> Play/Pause</button>
+            <div class="tooltip-menu-video">
+              <button onclick="slow(1)"><i class="fas fa-minus"></i></button>
+              <span class="tooltiptext-menu-video">diminuir velocidade</span>
+            </div>
+            <input type="text" id="vel1" class="video-speed-input" value="1">
+            <div class="tooltip-menu-video">
+              <button onclick="fast(1)"><i class="fas fa-plus"></i></button>
+              <span class="tooltiptext-menu-video">aumentar velocidade</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="loop(1)"><i class="fas fa-redo"></i></button>
+              <span id="loop1" class="tooltiptext-menu-video">ligar loop</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeBig(1)"><i class="fas fa-expand"></i></button>
+              <span class="tooltiptext-menu-video">imagem grande</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeSmall(1)"><i class="fas fa-compress"></i></button>
+              <span class="tooltiptext-menu-video">imagem pequena</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeNormal(1)"><i class="fas fa-window-restore"></i></button>
+              <span class="tooltiptext-menu-video">imagem normal</span>
+            </div>
           </div>
-
-          <input type="text" id="vel1" style=" width: 40px!important;" value="1">
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="fast(1)">+</button>
-
-            <span class="tooltiptext-menu-video">aumentar velocidade</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="loop(1)">loop</button>
-
-            <span id="loop1" class="tooltiptext-menu-video">ligar loop</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeBig(1)">grande</button>
-
-            <span class="tooltiptext-menu-video">imagem grande</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeSmall(1)">pequena</button>
-
-            <span class="tooltiptext-menu-video">imagem pequena</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeNormal(1)">normal</button>
-
-            <span class="tooltiptext-menu-video">imagem normal</span>
-
-          </div>
-          <br>
         </div>
-        <div class="col-12 col-md-6 text-center mt-2 default">
-          <h6 class="text-lightdark mb-3">DOMÍNIO 2 - Sudeste </h6>
-          <video id="vid2" width="420">
-            <source id="video2" src="videos/D02WIND.webm" type='video/webm; codecs="vp8, vorbis"' />
+        <div class="video-card">
+          <h6>DOMÍNIO 2 - Sudeste</h6>
+          <video id="vid2" width="420" src="videos/D02SWDOWN.webm">
+            <source id="video2" src="videos/D02WIND.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
             To view this video please enable JavaScript, and consider upgrading to a web browser
             that <a href="html5-video-support.html" target="_blank">supports HTML5 video</a>
           </video>
-          <br>
-          <button class="btn btn-sm btn-secondary" onclick="playPause(2)">Play/Pause</button>
-          <div class="tooltip-menu-video ">
-
-            <button class="btn btn-sm btn-secondary" onclick="slow(2)">-</button>
-            <span class="tooltiptext-menu-video">diminuir velocidade</span>
-
+          <div class="video-controls">
+            <button onclick="playPause(2)"><i class="fas fa-play"></i> Play/Pause</button>
+            <div class="tooltip-menu-video">
+              <button onclick="slow(2)"><i class="fas fa-minus"></i></button>
+              <span class="tooltiptext-menu-video">diminuir velocidade</span>
+            </div>
+            <input type="text" id="vel2" class="video-speed-input" value="1">
+            <div class="tooltip-menu-video">
+              <button onclick="fast(2)"><i class="fas fa-plus"></i></button>
+              <span class="tooltiptext-menu-video">aumentar velocidade</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="loop(2)"><i class="fas fa-redo"></i></button>
+              <span id="loop2" class="tooltiptext-menu-video">ligar loop</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeBig(2)"><i class="fas fa-expand"></i></button>
+              <span class="tooltiptext-menu-video">imagem grande</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeSmall(2)"><i class="fas fa-compress"></i></button>
+              <span class="tooltiptext-menu-video">imagem pequena</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeNormal(2)"><i class="fas fa-window-restore"></i></button>
+              <span class="tooltiptext-menu-video">imagem normal</span>
+            </div>
           </div>
-
-          <input type="text" id="vel2" style=" width: 40px!important;" value="1">
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="fast(2)">+</button>
-
-            <span class="tooltiptext-menu-video">aumentar velocidade</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="loop(2)">loop</button>
-
-            <span id="loop2" class="tooltiptext-menu-video">ligar loop</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeBig(2)">grande</button>
-
-            <span class="tooltiptext-menu-video">imagem grande</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeSmall(2)">pequena</button>
-
-            <span class="tooltiptext-menu-video">imagem pequena</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeNormal(2)">normal</button>
-
-            <span class="tooltiptext-menu-video">imagem normal</span>
-
-          </div>
-          <br>
         </div>
-        <div class="col-12 col-md-6 text-center mt-2 default">
-          <h6 class="text-lightdark mb-3">DOMÍNIO 3 - Espírito Santo</h6>
-          <video id="vid3" width="420">
-            <source id="video3" src="videos/D03WIND.webm" type='video/webm; codecs="vp8, vorbis"' />
+        <div class="video-card">
+          <h6>DOMÍNIO 3 - Espírito Santo</h6>
+          <video id="vid3" width="420" src="videos/D03SWDOWN.webm">
+            <source id="video3" src="videos/D03WIND.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
             To view this video please enable JavaScript, and consider upgrading to a web browser
             that <a href="html5-video-support.html" target="_blank">supports HTML5 video</a>
           </video>
-          <br>
-          <button class="btn btn-sm btn-secondary" onclick="playPause(3)">Play/Pause</button>
-          <div class="tooltip-menu-video ">
-
-            <button class="btn btn-sm btn-secondary" onclick="slow(3)">-</button>
-            <span class="tooltiptext-menu-video">diminuir velocidade</span>
-
+          <div class="video-controls">
+            <button onclick="playPause(3)"><i class="fas fa-play"></i> Play/Pause</button>
+            <div class="tooltip-menu-video">
+              <button onclick="slow(3)"><i class="fas fa-minus"></i></button>
+              <span class="tooltiptext-menu-video">diminuir velocidade</span>
+            </div>
+            <input type="text" id="vel3" class="video-speed-input" value="1">
+            <div class="tooltip-menu-video">
+              <button onclick="fast(3)"><i class="fas fa-plus"></i></button>
+              <span class="tooltiptext-menu-video">aumentar velocidade</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="loop(3)"><i class="fas fa-redo"></i></button>
+              <span id="loop3" class="tooltiptext-menu-video">ligar loop</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeBig(3)"><i class="fas fa-expand"></i></button>
+              <span class="tooltiptext-menu-video">imagem grande</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeSmall(3)"><i class="fas fa-compress"></i></button>
+              <span class="tooltiptext-menu-video">imagem pequena</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeNormal(3)"><i class="fas fa-window-restore"></i></button>
+              <span class="tooltiptext-menu-video">imagem normal</span>
+            </div>
           </div>
-
-          <input type="text" id="vel3" style=" width: 40px!important;" value="1">
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="fast(3)">+</button>
-
-            <span class="tooltiptext-menu-video">aumentar velocidade</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="loop(3)">loop</button>
-
-            <span id="loop3" class="tooltiptext-menu-video">ligar loop</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeBig(3)">grande</button>
-
-            <span class="tooltiptext-menu-video">imagem grande</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeSmall(3)">pequena</button>
-
-            <span class="tooltiptext-menu-video">imagem pequena</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeNormal(3)">normal</button>
-
-            <span class="tooltiptext-menu-video">imagem normal</span>
-
-          </div>
-          <br>
         </div>
-        <div class="col-12 col-md-6 text-center mt-2 default">
-          <h6 class="text-lightdark mb-3">DOMÍNIO 4 - Região Metropolitana da Grande Vitória</h6>
-          <video id="vid4" width="420">
-            <source id="video4" src="videos/D04WIND.webm" type='video/webm; codecs="vp8, vorbis"' />
+        <div class="video-card">
+          <h6>DOMÍNIO 4 - Região Metropolitana da Grande Vitória</h6>
+          <video id="vid4" width="420" src="videos/D04SWDOWN.webm">
+            <source id="video4" src="videos/D04WIND.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
             To view this video please enable JavaScript, and consider upgrading to a web browser
             that <a href="html5-video-support.html" target="_blank">supports HTML5 video</a>
           </video>
-          <br>
-          <button class="btn btn-sm btn-secondary" onclick="playPause(4)">Play/Pause</button>
-          <div class="tooltip-menu-video ">
-
-            <button class="btn btn-sm btn-secondary" onclick="slow(4)">-</button>
-            <span class="tooltiptext-menu-video">diminuir velocidade</span>
-
+          <div class="video-controls">
+            <button onclick="playPause(4)"><i class="fas fa-play"></i> Play/Pause</button>
+            <div class="tooltip-menu-video">
+              <button onclick="slow(4)"><i class="fas fa-minus"></i></button>
+              <span class="tooltiptext-menu-video">diminuir velocidade</span>
+            </div>
+            <input type="text" id="vel4" class="video-speed-input" value="1">
+            <div class="tooltip-menu-video">
+              <button onclick="fast(4)"><i class="fas fa-plus"></i></button>
+              <span class="tooltiptext-menu-video">aumentar velocidade</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="loop(4)"><i class="fas fa-redo"></i></button>
+              <span id="loop4" class="tooltiptext-menu-video">ligar loop</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeBig(4)"><i class="fas fa-expand"></i></button>
+              <span class="tooltiptext-menu-video">imagem grande</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeSmall(4)"><i class="fas fa-compress"></i></button>
+              <span class="tooltiptext-menu-video">imagem pequena</span>
+            </div>
+            <div class="tooltip-menu-video">
+              <button onclick="makeNormal(4)"><i class="fas fa-window-restore"></i></button>
+              <span class="tooltiptext-menu-video">imagem normal</span>
+            </div>
           </div>
-
-          <input type="text" id="vel4" style=" width: 40px!important;" value="1">
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="fast(4)">+</button>
-
-            <span class="tooltiptext-menu-video">aumentar velocidade</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="loop(4)">loop</button>
-
-            <span id="loop4" class="tooltiptext-menu-video">ligar loop</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeBig(4)">grande</button>
-
-            <span class="tooltiptext-menu-video">imagem grande</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeSmall(4)">pequena</button>
-
-            <span class="tooltiptext-menu-video">imagem pequena</span>
-
-          </div>
-          <div class="tooltip-menu-video">
-            <button class="btn btn-sm btn-secondary" onclick="makeNormal(4)">normal</button>
-
-            <span class="tooltiptext-menu-video">imagem normal</span>
-
-          </div>
-          <br>
         </div>
       </div>
-      <div id="footer" class="footer mt-auto py-3 bg-light">
-        <div class="container">
-          <p class="text-muted text-justify">
-            ATENÇÃO: Os produtos aqui divulgados são resultados das pesquisas científicas desenvolvidas
-            pelos laboratórios associados. Não há nenhum compromisso quanto a confiabilidade das previsões,
-            isentando os pesquisadores participantes e suas respectivas instituições, de qualquer
-            responsabilidade por danos causados pela utilização indevida e não autorizada por parte de terceiros.
-          </p>
-        </div>
+      <div class="footer-notice">
+        <p><i class="fas fa-exclamation-triangle"></i> <strong>ATENÇÃO:</strong> Os produtos aqui divulgados são resultados das pesquisas científicas desenvolvidas pelos laboratórios associados.</p>
       </div>
     </div>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+      <script type="text/javascript" src="assets/js/script.js"></script>
+      <script type="text/javascript" src="assets/js/video.js"></script>
+      <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+      <script>
+        function toggleExplanation() {
+          const content = document.getElementById('explanationContent');
+          const button = document.getElementById('toggleExplanation');
+          
+          if (content.style.display === 'none') {
+            content.style.display = 'block';
+            button.innerHTML = '<i class="fas fa-chevron-up"></i> Ocultar Explicação';
+          } else {
+            content.style.display = 'none';
+            button.innerHTML = '<i class="fas fa-chevron-down"></i> Mostrar Explicação';
+          }
+        }
+      </script>
+
+
+  
+
+</div>
+
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script type="text/javascript" src="assets/js/video.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
       function toggleExplanation() {
@@ -342,11 +306,6 @@
                 })
                 .then(data => {
                     document.getElementById('navbar-container').innerHTML = data;
-
-                    // 2. Cria dinamicamente o script do Bootstrap 5.3 para evitar conflitos nativos de componentes
-                    const scriptBootstrap = document.createElement('script');
-                    scriptBootstrap.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
-                    document.body.appendChild(scriptBootstrap);
                 })
                 .catch(error => console.error(error));
 
