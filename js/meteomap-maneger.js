@@ -761,6 +761,8 @@ class MeteoMapManager {
         if (variableType === 'eolico') {
             heightSelector.classList.add('active');
             if (windLayerToggle) windLayerToggle.classList.add('active');
+        } else if (variableType === 'wind') {
+            if (windLayerToggle) windLayerToggle.classList.add('active');
         } else {
             heightSelector.classList.remove('active');
             if (windLayerToggle) windLayerToggle.classList.remove('active');
@@ -861,7 +863,7 @@ class MeteoMapManager {
                 this.updateUIFromMetadata(valueData.metadata, gridLayer._gridMetadata);
                 
                 // Re-render vetores de vento se habilitados (para eólico)
-                if (type === 'eolico') {
+                if (type === 'eolico' || type === 'wind') {
                     const windCheckbox = document.getElementById('windLayerCheckbox');
                     if (windCheckbox && windCheckbox.checked) {
                         // Usar setTimeout para garantir que o canvas está pronto
@@ -1513,7 +1515,7 @@ class MeteoMapManager {
     }
 
     toggleWindLayer(isEnabled) {
-        if (this.state.type !== 'eolico') {
+        if (this.state.type !== 'eolico' && this.state.type !== 'wind') {
             console.warn('Camada de vento só disponível para eólico');
             return;
         }
@@ -1527,6 +1529,9 @@ class MeteoMapManager {
 
     renderWindVectors() {
         const canvas = document.getElementById('windVectorCanvas');
+
+        //console.log("Dados atuais ao renderizar vento:", this.currentValueData);
+
         if (!canvas || !this.currentValueData) {
             console.warn('Canvas ou dados de vento não disponíveis');
             return;
