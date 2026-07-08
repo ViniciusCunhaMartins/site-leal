@@ -761,8 +761,8 @@ class MeteoMapManager {
         if (variableType === 'eolico') {
             heightSelector.classList.add('active');
             if (windLayerToggle) windLayerToggle.classList.add('active');
-        } else if (variableType === 'wind') {
-            if (windLayerToggle) windLayerToggle.classList.add('active');
+//        } else if (variableType === 'wind') {
+//            if (windLayerToggle) windLayerToggle.classList.add('active');
         } else {
             heightSelector.classList.remove('active');
             if (windLayerToggle) windLayerToggle.classList.remove('active');
